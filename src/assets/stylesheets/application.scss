@@ -14,7 +14,7 @@
     color: rgba(#000, 0.8);
   }
 
-  background: #D2E3E1;
+  background: #333;
   padding: 30px 50px;
   display: flex;
   flex-flow: row nowrap;
@@ -23,24 +23,25 @@
 
   #header-logo {
     font-size: 2.8rem;
+    color: #fff;
   }
 
-  #header-nav {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-end;
-
-    & > * {
-      margin-left: 15px;
-
-      &:first-child {
-        margin-left: 0;
+  .header-nav {
+    &__links {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-end;
+      a {
+        color: #fff;
       }
-    }
 
-    & > *, .dropdown-item {
-      font-size: 1.4rem;
+      & > * {
+        margin-left: 15px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
     }
   }
 }
@@ -48,4 +49,13 @@
 #container {
   @include container();
   margin-top: 50px;
+}
+
+.container {
+  &__title {
+    text-align: center;
+  }
+  &__in {
+    padding-top: 50px;
+  }
 }

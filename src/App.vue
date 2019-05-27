@@ -1,26 +1,27 @@
 <template>
   <div id="wrapper">
     <header id="header">
+      <h1 id="header-logo">銀河マンモス</h1>
 
+      <nav class="header-nav">
+        <ul class="header-nav__links">
+          <li><router-link to="/">銀河マンモスについて</router-link></li>
+          <li><router-link to="/accounts">アカウント管理</router-link></li>
+        </ul>
+      </nav>
     </header>
     <div id="container">
       <div id="app">
-        <div id="nav">
-          <router-link to="/">Home</router-link>
-          |
-          <router-link to="/about">About</router-link>
-          <a href="@" data-toggle="tooltip" title="tooltip test">test</a>
-        </div>
         <router-view/>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
   export default {
-    mounted() {
+    created() {
+      this.$store.commit('accounts/restoreStorage');
     }
   }
 </script>
