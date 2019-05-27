@@ -1,0 +1,51 @@
+@import "bootstrap_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "module_variables";
+@import "module/module";
+
+#wrapper {
+  padding-bottom: 50px;
+}
+
+#header {
+  min-width: $global-width;
+
+  &, a {
+    color: rgba(#000, 0.8);
+  }
+
+  background: #D2E3E1;
+  padding: 30px 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  #header-logo {
+    font-size: 2.8rem;
+  }
+
+  #header-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > * {
+      margin-left: 15px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    & > *, .dropdown-item {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+#container {
+  @include container();
+  margin-top: 50px;
+}
