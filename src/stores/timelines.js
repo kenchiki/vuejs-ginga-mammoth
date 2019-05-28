@@ -23,6 +23,10 @@ export default {
       state.timelines = state.timelines.filter(timeline => timeline.id !== timeline_id);
       state.localStorage.setItem('timelines', JSON.stringify(state.timelines));
     },
+    deleteTimelineByAccount(state, account_id) {
+      state.timelines = state.timelines.filter(timeline => timeline.account.id !== account_id);
+      state.localStorage.setItem('timelines', JSON.stringify(state.timelines));
+    },
     restoreStorage(state) {
       state.timelines = JSON.parse(state.localStorage.getItem('timelines')) || [];
     }

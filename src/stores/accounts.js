@@ -55,11 +55,10 @@ export default {
     restoreStorage(state) {
       state.accounts = JSON.parse(state.localStorage.getItem('accounts')) || [];
     },
-    clearStorage(state) {
-      state.sessionStorage.clear();
-      state.localStorage.clear();
-      state.accounts = [];
-    },
+    deleteAccount(state, account_id) {
+      state.accounts = state.accounts.filter(account => account.id !== account_id);
+      state.localStorage.setItem('accounts', JSON.stringify(state.accounts));
+    }
   },
   actions: {
     async fetchApp({commit, dispatch}, mastodon_url) {
@@ -127,6 +126,7 @@ export default {
       } catch (error) {
         commit('setError', error);
       }
-    }
+    },
+
   }
 }

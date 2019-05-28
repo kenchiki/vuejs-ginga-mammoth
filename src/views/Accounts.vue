@@ -9,6 +9,7 @@
         <ul class="accounts" v-if="accounts.length">
           <li v-for="account in accounts" v-bind:key="account.id">
             {{account.instance_name}}
+            <input type="button" value="アカウント削除" v-on:click="deleteAccount(account.id)">
           </li>
         </ul>
         <p>
@@ -16,10 +17,6 @@
         </p>
         <p>
           <input type="button" value="アカウント追加" v-on:click="addAccount">
-        </p>
-
-        <p>
-          <input type="button" value="全アカウント削除" v-on:click="deleteAllAccounts">
         </p>
       </div>
     </div>
@@ -38,16 +35,17 @@
     },
     computed: {
       ...mapState({
-        accounts: state => state.accounts.accounts
+        accounts: state => state.accounts.accounts,
       })
     },
     methods: {
+      deleteAccount(account_id) {
+        this.$store.commit('accounts/deleteAccount', account_id);
+        this.$store.commit('timelines/deleteTimelineByAccount', account_id);
+      },
       async addAccount() {
         await this.$store.dispatch('accounts/fetchApp', this.mastodon_url);
         this.error = this.$store.state.accounts.error;
-      },
-      deleteAllAccounts() {
-        this.$store.commit('accounts/clearStorage');
       }
     }
   }
