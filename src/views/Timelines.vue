@@ -50,6 +50,7 @@
       addTimeline() {
         this.$store.commit('timelines/addTimeline', {account: this.getAccount(this.account_id), type: this.type});
       },
+      // TODO:DRYにしたい
       getAccount(account_id) {
         return this.accounts.find((account) => {
           return account.id === account_id;
