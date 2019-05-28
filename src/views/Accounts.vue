@@ -2,15 +2,15 @@
   <div class="accounts container">
     <h1 class="container__title">アカウント管理</h1>
     <div class="container__in">
-      <div class="error" v-if="error">
-        {{ error.response.data.error }}
-      </div>
-      <ul class="accounts" v-if="accounts.length">
-        <li v-for="account in accounts" v-bind:key="account.id">
-          {{account.title}}
-        </li>
-      </ul>
       <div class="wysiwyg">
+        <div class="error" v-if="error">
+          {{ error.response.data.error }}
+        </div>
+        <ul class="accounts" v-if="accounts.length">
+          <li v-for="account in accounts" v-bind:key="account.id">
+            {{account.instance_name}}
+          </li>
+        </ul>
         <p>
           <input type="text" v-model="mastodon_url">（テスト用：http://localhost:3000）
         </p>

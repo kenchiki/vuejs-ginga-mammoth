@@ -16,7 +16,7 @@ export default {
     sessionStorage: sessionStorage
   },
   mutations: {
-    // TODO:エラーは他でも使いまわすのでmixinsにする
+    // TODO:エラーは他でも使いまわすのでmixinsにしたい
     setError(state, error) {
       state.error = error;
     },
@@ -33,8 +33,8 @@ export default {
     setToken(state, token) {
       state.sessionStorage.setItem('token', token);
     },
-    setTitle(state, title) {
-      state.sessionStorage.setItem('title', title);
+    setInstanceName(state, instance_name) {
+      state.sessionStorage.setItem('instance_name', instance_name);
     },
     setStreamingUrl(state, streaming_url) {
       state.sessionStorage.setItem('streaming_url', streaming_url);
@@ -47,7 +47,7 @@ export default {
         client_id: state.sessionStorage.getItem('client_id'),
         token: state.sessionStorage.getItem('token'),
         streaming_url: state.sessionStorage.getItem('streaming_url'),
-        title: state.sessionStorage.getItem('title'),
+        instance_name: state.sessionStorage.getItem('instance_name'),
       });
       state.localStorage.setItem('accounts', JSON.stringify(state.accounts));
       state.sessionStorage.clear();
@@ -122,7 +122,7 @@ export default {
           headers: {'Authorization': `Bearer ${state.sessionStorage.getItem('token')}`}
         });
         commit('setStreamingUrl', response.data.urls.streaming_api);
-        commit('setTitle', response.data.title);
+        commit('setInstanceName', response.data.title);
         commit('setError', null);
       } catch (error) {
         commit('setError', error);

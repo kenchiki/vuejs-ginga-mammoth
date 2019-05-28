@@ -23,5 +23,10 @@ export default new Router({
       name: 'oauth_callback',
       component: () => import('./views/OauthCallback.vue')
     },
+    {
+      path: '/timelines',
+      name: 'timelines',
+      component: () => import('./views/Timelines.vue')
+    },
   ]
-})
+});
