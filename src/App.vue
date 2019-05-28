@@ -8,6 +8,7 @@
           <li><router-link to="/">銀河マンモスについて</router-link></li>
           <li><router-link to="/accounts">アカウント管理</router-link></li>
           <li><router-link to="/timelines">タイムライン管理</router-link></li>
+          <li><router-link to="/statuses">投稿</router-link></li>
         </ul>
       </nav>
     </header>

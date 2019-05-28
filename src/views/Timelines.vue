@@ -3,8 +3,8 @@
     <h1 class="container__title">タイムライン管理</h1>
     <div class="container__in">
       <div class="wysiwyg">
-        <ul class="timelines" v-if="timelinesWithAccount.length">
-          <li v-for="timeline in timelinesWithAccount" v-bind:key="timeline.id">
+        <ul class="timelines" v-if="timelines.length">
+          <li v-for="timeline in timelines" v-bind:key="timeline.id">
             {{timeline.account.instance_name}}:{{timeline.type}}
           </li>
         </ul>
@@ -43,20 +43,17 @@
       ...mapState({
         timelines: state => state.timelines.timelines,
         accounts: state => state.accounts.accounts
-      }),
-      // TODO:mixinsにしたい
-      timelinesWithAccount() {
-        return this.timelines.map((timeline) => {
-          timeline.account = this.accounts.find((account) => {
-            return account.id === timeline.account_id;
-          });
-          return timeline;
-        });
-      }
+      })
     },
     methods: {
+      // TODO:タイムライン並び替え
       addTimeline() {
-        this.$store.commit('timelines/addTimeline', {account_id: this.account_id, type: this.type});
+        this.$store.commit('timelines/addTimeline', {account: this.getAccount(this.account_id), type: this.type});
+      },
+      getAccount(account_id) {
+        return this.accounts.find((account) => {
+          return account.id === account_id;
+        });
       }
     },
     created() {

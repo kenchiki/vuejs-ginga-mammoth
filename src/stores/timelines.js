@@ -11,10 +11,10 @@ export default {
     setError(state, error) {
       state.error = error;
     },
-    addTimeline(state, {account_id, type}) {
+    addTimeline(state, {account, type}) {
       state.timelines.push({
         id: uuidv1(),
-        account_id: account_id,
+        account: account,
         type: type
       });
       state.localStorage.setItem('timelines', JSON.stringify(state.timelines));

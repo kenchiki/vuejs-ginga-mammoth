@@ -28,5 +28,10 @@ export default new Router({
       name: 'timelines',
       component: () => import('./views/Timelines.vue')
     },
+    {
+      path: '/statuses',
+      name: 'statuses',
+      component: () => import('./views/Statuses.vue')
+    },
   ]
 });
