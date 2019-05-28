@@ -19,6 +19,10 @@ export default {
       });
       state.localStorage.setItem('timelines', JSON.stringify(state.timelines));
     },
+    deleteTimeline(state, timeline_id) {
+      state.timelines = state.timelines.filter(timeline => timeline.id !== timeline_id);
+      state.localStorage.setItem('timelines', JSON.stringify(state.timelines));
+    },
     restoreStorage(state) {
       state.timelines = JSON.parse(state.localStorage.getItem('timelines')) || [];
     }

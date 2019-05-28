@@ -6,6 +6,7 @@
         <ul class="timelines" v-if="timelines.length">
           <li v-for="timeline in timelines" v-bind:key="timeline.id">
             {{timeline.account.instance_name}}:{{timeline.type}}
+            <input type="button" value="タイムライン削除" v-on:click="deleteTimeline(timeline.id)">
           </li>
         </ul>
         <p>
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex';
+  import {mapMutations, mapState} from 'vuex';
 
   export default {
     data: function () {
@@ -46,6 +47,9 @@
       })
     },
     methods: {
+      ...mapMutations({
+        deleteTimeline: 'timelines/deleteTimeline'
+      }),
       // TODO:タイムライン並び替え
       addTimeline() {
         this.$store.commit('timelines/addTimeline', {account: this.getAccount(this.account_id), type: this.type});
