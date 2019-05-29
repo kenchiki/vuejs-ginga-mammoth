@@ -3,7 +3,7 @@
 Vue.js製のマストドンクライアントです。 
 特徴的な機能として「マルチアカウント機能」、「お絵かき機能」があります。
 
-![動作イメージ](https://raw.githubusercontent.com/kenchiki/vuejs-ginga-mammoth/master/screenshot.gif)
+[動作イメージ](https://nagai-galaxy.com/screenshot/vuejs-ginga-mammoth.gif)
 
 ## Project setup
 ```
