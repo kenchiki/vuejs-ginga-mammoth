@@ -1,4 +1,9 @@
-# vuejs-ginga-mammoth
+# 概要
+
+Vue.js製のマストドンクライアントです。 
+特徴的な機能として「マルチアカウント機能」、「お絵かき機能」があります。
+
+![動作イメージ](https://raw.githubusercontent.com/kenchiki/vuejs-ginga-mammoth/master/screenshot.gif)
 
 ## Project setup
 ```
@@ -34,6 +39,3 @@ yarn run test:e2e
 ```
 yarn run test:unit
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
