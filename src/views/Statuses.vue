@@ -1,12 +1,10 @@
 <template>
-  <div class="accounts container">
-    <h1 class="container__title">投稿</h1>
-    <div class="container__in">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-status-window">トゥート</button>
-      <ul class="timelines" v-if="timelines.length">
-        <li class="timelines__box" is="Timeline" v-for="timeline in timelines" v-bind:key="timeline.id" v-bind:timeline="timeline"></li>
-      </ul>
-    </div>
+  <div class="full">
+      <button type="button" class="btn btn-primary open-toot" data-toggle="modal" data-target="#modal-status-window">トゥートする画面を開く</button>
+      <div class="timelines" v-if="timelines.length">
+        <div class="timelines__timeline" is="Timeline" v-for="timeline in timelines" v-bind:key="timeline.id" v-bind:timeline="timeline"></div>
+      </div>
+
 
     <!--modal-->
     <div class="modal fade" id="modal-status-window" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -45,6 +43,7 @@
             </div>
 
             <div class="form-group">
+              <label class="col-form-label">お絵かき:</label>
               <Drawing v-on:drew="uploadCanvas" />
             </div>
           </div>
@@ -127,19 +126,23 @@
 </script>
 
 <style scoped lang="scss">
+  .full {
+    box-sizing: border-box;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+  }
   .timelines {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
     width: 100%;
-    height: 500px;
+    height: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
-    &__box {
+    &__timeline {
       width: 300px;
       height: 100%;
       flex-shrink:0;
-      overflow-y: scroll;
     }
   }
 
@@ -157,5 +160,11 @@
     img {
       width: 100%;
     }
+  }
+
+  .open-toot {
+    position: fixed;
+    left: 230px;
+    top: 18px;
   }
 </style>

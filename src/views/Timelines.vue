@@ -1,27 +1,33 @@
 <template>
-  <div class="accounts container">
-    <h1 class="container__title">タイムライン管理</h1>
-    <div class="container__in">
-      <div class="wysiwyg">
-        <ul class="timelines" v-if="timelines.length">
-          <li v-for="timeline in timelines" v-bind:key="timeline.id">
-            {{timeline.account.instance_name}}:{{timeline.type}}
-            <input type="button" value="タイムライン削除" v-on:click="deleteTimeline(timeline.id)">
-          </li>
-        </ul>
-        <p>
-          <select v-model="account_id">
-            <option v-for="account in accounts" v-bind:key="account.id" v-bind:value="account.id">{{account.instance_name}}</option>
-          </select>
-        </p>
-        <p>
-          <select v-model="type">
-            <option v-for="type in types" v-bind:key="type.id" v-bind:value="type.value">{{type.text}}</option>
-          </select>
-        </p>
-        <p>
-          <input type="button" value="タイムライン追加" v-on:click="addTimeline">
-        </p>
+  <div class="little">
+    <h1 class="little__title">タイムライン管理</h1>
+    <div class="little__in">
+
+      <div class="timelines-info" v-if="timelines.length">
+        <div class="card" v-for="timeline in timelines" v-bind:key="timeline.id">
+          <div class="card-body">
+            <h5 class="card-title">{{timeline.account.instance_name}}({{timeline.type}})</h5>
+            <input type="button" value="タイムライン削除" v-on:click="deleteTimeline(timeline.id)" class="btn btn-secondary">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mt-5">
+        <label for="account_id" class="col-form-label">アカウント選択:</label>
+        <select v-model="account_id" class="form-control" id="account_id">
+          <option v-for="account in accounts" v-bind:key="account.id" v-bind:value="account.id">{{account.instance_name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="type" class="col-form-label">タイプ選択:</label>
+        <select v-model="type" class="form-control" id="type">
+          <option v-for="type in types" v-bind:key="type.id" v-bind:value="type.value">{{type.text}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <input type="button" value="タイムライン追加" v-on:click="addTimeline" class="form-control btn btn-danger">
       </div>
     </div>
   </div>
@@ -67,3 +73,10 @@
     }
   }
 </script>
+
+<style scoped lang="scss">
+  @import "../assets/stylesheets/module/_mixins.scss";
+  .timelines-info {
+    @include grid($x: 5, $y: 5, $n: 3, $flow: wrap);
+  }
+</style>
