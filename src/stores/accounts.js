@@ -5,7 +5,7 @@ import uuidv1 from 'uuid/v1';
 const API_SCOPE = 'read write';
 const APP_NAME = '銀河マンモス';
 // client、tokenどちらを取得する際も同一のものを指定する必要あり（認証のところで無効と表示されてしまうため）
-const REDIRECT_URI = 'http://localhost:8081/oauth_callback';
+const REDIRECT_URI = 'http://localhost:8080/oauth_callback';
 
 export default {
   namespaced: true,

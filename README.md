@@ -5,6 +5,16 @@ Vue.js製のマストドンクライアントです。
 
 [動作イメージ](https://nagai-galaxy.com/screenshot/vuejs-ginga-mammoth.gif)
 
+## Dockerでの開発手順
+
+```sh
+docker-compose up -d 
+docker-compose run app yarn install
+docker-compose run --service-ports app yarn run serve
+```
+
+- [http://localhost:8080/](http://localhost:8080/)にアクセス
+
 ## Project setup
 ```
 yarn install
