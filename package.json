@@ -31,7 +31,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "fabric": "^3.0.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0",
     "qs": "^6.7.0",
     "sass": "^1.18.0",
